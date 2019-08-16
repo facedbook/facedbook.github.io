@@ -1,18 +1,22 @@
 github: [metadata]
 encoding: UTF-8
-markdown: kramdown
-highlighter: rouge
-kramdown:
-  input: GFM
-  hard_wrap: false
-future: true
-jailed: false
-theme: jekyll-theme-minimal
-gfm_quirks: paragraph_end
-paginate: 11
 
 title: facedbook's blog
 email: guweiyi_cn@hotmail.com
 description: "Every failure is leading towards success."
 url: "http://facedbook.github.io"
-baseurl: ""
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+future: true
+jailed: false
+
+theme: jekyll-theme-minimal
+gfm_quirks: paragraph_end
+
+plugins: [jekyll-paginate]
+paginate: 11
