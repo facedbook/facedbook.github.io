@@ -5,6 +5,7 @@ title: facedbook's blog
 email: guweiyi_cn@hotmail.com
 description: "Every failure is leading towards success."
 url: "http://facedbook.github.io"
+logo: /assets/img/logo.png
 
 markdown: kramdown
 highlighter: rouge
