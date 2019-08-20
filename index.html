@@ -30,7 +30,7 @@ layout: default
                     <h3 class="panel-title pull-left">{{ post.title | truncate: 25 }}</h3>
                     <span class="post-meta pull-right">{{ post.date | date: "%b %-d, %Y" }}</span>
                     {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}
-                    <a href="{{ post.url | prepend: site.baseurl }}" >Read</a>
+                    <a href="{{ post.url | prepend: site.baseurl }}" >Read?</a>
         {% endfor %}
 
     </div> 
