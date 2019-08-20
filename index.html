@@ -3,30 +3,27 @@ layout: default
 ---
 
 <div class="home">
- 
   
     <div class="row pack">
+     
+    {% for post in site.posts limit:5 %}
+        <article>
+           {% if post.link %}
+           <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> 
+           <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a></h2>
+           {% else %}
+           <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+           <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+           {% endif %}
+        </article>
+    {% endfor %}
 
         {% for post in paginator.posts %}   
-            <div class="col-md-4 card">
-                 
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <h3 class="panel-title pull-left">{{ post.title | truncate: 25 }}</h3><span class="post-meta pull-right"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span>
-                  </div>
-                  {% if post.img %}
-                  <img width="100%" src="{{site.baseurl}}/images/{{post.img}}" alt="{{post.title}}">
-                  {% else %}
-                  <img width="100%" src="{{site.baseurl}}/images/webjeda-logo-big.jpg" alt="{{site.title}}">
-                  {% endif %}
-                  <div class="panel-body"><small>
+                    <h3 class="panel-title pull-left">{{ post.title | truncate: 25 }}</h3><span class="post-meta pull-right">
+                    <small>{{ post.date | date: "%b %-d, %Y" }}</small></span>
                     {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}</small>
-                    <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-primary btn-sm pull-right mt10">Read</a>
-                  </div>
-                </div>
-            </div>
-        
-          {% endfor %}
+                    <a href="{{ post.url | prepend: site.baseurl }}" >Read</a>
+        {% endfor %}
 
     </div> 
     
