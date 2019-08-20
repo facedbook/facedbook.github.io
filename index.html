@@ -6,6 +6,19 @@ layout: default
   
     <div class="row pack">
      
+      <ul>
+     {% for post in site.posts limit: 5 %}
+
+  <li>
+    <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{
+      post.title
+    }}</a>
+  </li>
+  {% endfor %}
+</ul> 
+      
+      
     {% for post in site.posts limit:5 %}
         <article>
            {% if post.link %}
@@ -19,9 +32,9 @@ layout: default
     {% endfor %}
 
         {% for post in paginator.posts %}   
-                    <h3 class="panel-title pull-left">{{ post.title | truncate: 25 }}</h3><span class="post-meta pull-right">
-                    <small>{{ post.date | date: "%b %-d, %Y" }}</small></span>
-                    {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}</small>
+                    <h3 class="panel-title pull-left">{{ post.title | truncate: 25 }}</h3>
+                    <span class="post-meta pull-right">{{ post.date | date: "%b %-d, %Y" }}</span>
+                    {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}
                     <a href="{{ post.url | prepend: site.baseurl }}" >Read</a>
         {% endfor %}
 
